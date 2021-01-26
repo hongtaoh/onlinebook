@@ -10,7 +10,7 @@ weight = 10
 Write online books and/or articles in Rmarkdown. Easy to work with LaTeX. 
 
 [Demo](https://olymvis-bookdown.hongtaoh.com/) | [Source](https://github.com/hongtaoh/olymvis-bookdown) | [Theme](https://bookdown.org/yihui/bookdown/)\
-[PDF output](https://olymvis-bookdown.hongtaoh.com/olymvis-bookdown.pdf)
+[PDF output](https://olymvis-bookdown.hongtaoh.com/olymvis-bookdown.pdf) | [MS Word output](https://olymvis-bookdown.hongtaoh.com/_book/olymvis-bookdown.docx)
 
 <!--more-->
 
