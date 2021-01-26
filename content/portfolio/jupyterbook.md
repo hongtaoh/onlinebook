@@ -37,7 +37,7 @@ If you have `.ipynb` files
 │   ├── 05-plots-ranking.md
 │   └── index.md
 ├── _build
-│    ...
+│    ... (lots of files after you serve the site locally)
 ├── _config.yml
 ├── _toc.yml  -----> See ▼ below for details
 ├── abstract.md

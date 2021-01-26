@@ -1,6 +1,6 @@
 +++
 date = "2016-11-05T19:41:01+05:30"
-title = "Hugo gitopendocs"
+title = "OpenGitDocs"
 draft = false
 image = "img/hugo/hugo-gitopendocs.png"
 showonlyimage = false
