@@ -1,4 +1,4 @@
-baseurl = "https://onlinebook.netlify.app/"
+baseurl = "https://onlinebook.hongtaoh.com/"
 title = "Online books protfolio"
 theme = "hugo-creative-portfolio"
 languageCode = "en-us"
@@ -54,6 +54,6 @@ googleAnalytics = ""
   url = "contact/"
 
   [params.social]
-  github        = "full profile url in github"
+  github        = "https://github.com/hongtaoh/onlinebook"
 
   
