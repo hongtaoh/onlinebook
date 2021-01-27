@@ -10,7 +10,7 @@ In the following, I'll talk about how to make online books or online documentati
 
 - A better way to learn: creating an online book helps you organize your knowledge and learn at a deeper level.
 
-## Hugo
+## 1. Hugo
 
 [Hugo](https://gohugo.io/) defines itself as "the world's fastest framework for building websites". It is essentially a static site generator written in [Go](https://golang.org/). It is becoming increasingly popular partly because of its speed of rendering website pages. 
 
@@ -24,7 +24,7 @@ Some useful links:
 
 - [Official documentation](https://gohugo.io/documentation/)
 
-### Install Hugo
+### 1.1 Install Hugo
 
 Whether your computer is running or macOS, Windows, or Linus, you can download the binary from the [Hugo releases](https://github.com/gohugoio/hugo/releases). [Here](https://github.com/gohugoio/hugo/releases) is the official instruction. You can read [my post](https://hongtaoh.com/en/2020/01/29/how-to-install-and-upgrade-hugo-on-mac/) on installing and upgrading Hugo on Mac as well. 
 
@@ -36,11 +36,11 @@ brew install hugo
 
 If you experience difficulties installing Hugo, please refer to the [official guide](https://gohugo.io/getting-started/installing/) on installation. 
 
-### Use Hugo
+### 1.2 Use Hugo
 
-#### 1. Generating a demo site
+#### 1.2.1 Generating a demo site
 
-After intalling Hugo, please open your terminal and test whether the installation is successful with `hugo version`. 
+After installing Hugo, please open your terminal and test whether the installation is successful with `hugo version`. 
 
 Now, we are going to generate a demo site. In your terminal, first change directory to where you want the demo site to sit. 
 
@@ -52,7 +52,7 @@ hugo new site demosite # You can change "demosite" to any other names you like.
 
 You'll see a new folder named "demosite" generated.
 
-#### 2. Download Themes
+#### 1.2.2 Download Themes
 
 To build a website with Hugo, you need to use a theme. It can be developed by others or yourself. You can find available themes [here](https://themes.gohugo.io/). Considering the purpose of this tutorial, I'll focus on [Hugo themes suitable for making documentations](https://themes.gohugo.io/tags/documentation/).
 
@@ -125,7 +125,7 @@ origin	https://github.com/kishaningithub/hugo-creative-portfolio-theme (push)
 
 Obviously, I should use `git remote rm origin`. 
 
-#### 3. See the exampleSite
+#### 1.2.3 See the exampleSite
 
 Most themes come with an `exampleSite` which usually contains `content`, `static` and `config.toml`. Please copy all the stuff in this `exampleSite` and paste theme to the root directory of `demosite`. If files already have some of the names, for example, `config.toml`, just replace it with the new one (the one from `exampleSite`).
 
@@ -145,7 +145,7 @@ If everything goes well, open `http://localhost:1313/` and you'll see the exampl
 
 To stop the local server, press `Ctrl` + `C`. 
 
-### Create your own content
+### 1.3 Create your own content
 
 After establishing the theme you want to use, you need to create your own content. 
 
@@ -187,19 +187,19 @@ Since the number of sections seldom exceeds ten, the weight of each `markdown` f
 
 You get the idea, right?
 
-### Customize
+### 1.4 Customize
 
 Customization of Hugo themes can be super easy or challenging, depending on how much you want to change. 
 
-To customize, you need a deeper understanding of HTML, CSS, and of course, [Hugo](https://gohugo.io/documentation/), which is beyond the scope of this online book tutorial. That said, I'd like to point out some basic cusomization tips:
+To customize, you need a deeper understanding of HTML, CSS, and of course, [Hugo](https://gohugo.io/documentation/), which is beyond the scope of this online book tutorial. That said, I'd like to point out some basic customization tips:
 
-- To customize the general look of the book's pages, you'll need to make changes within `themes/YourTheme/layouts`. You can find most defaul styling in `_default` and `partials`. 
+- To customize the general look of the book's pages, you'll need to make changes within `themes/YourTheme/layouts`. You can find most default styling in `_default` and `partials`. 
 
 - To customize the look a page more deeply, you'll need to go to `themes/YourTheme/static/css`. Some themes put the styling in lots of `.scss` files within the `assets` folder. 
 
 If you want to customize the theme more deeply, I highly recommend you to read the book of [*Blogdown*](https://bookdown.org/yihui/blogdown/) by [Yihui Xie](https://bookdown.org/yihui/blogdown/yihui-xie.html).
 
-### Publish a Hugo site
+### 1.5 Publish a Hugo site
 
 You can find [a complete list](https://gohugo.io/hosting-and-deployment/) of ways to host a Hugo site on the official hugo site. I'll only talk how to publish via [Netlify](https://www.netlify.com/), which is free. 
 
@@ -266,15 +266,15 @@ What you should do later can be found in Hugo's guide of [Host on Netlify](https
 - [Build and Deploy](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#build-and-deploy-site)
 
 
-## VuePress
+## 2. VuePress
 
-### Install and Use
+### 2.1 Install and Use
 
 [VuePress](https://vuepress.vuejs.org/) is a static site generator powered by [Vue.js](https://vuejs.org/).
 
 To be able to use VuePress, you need to make sure you've had [Node.js](https://nodejs.org/en/) installed. 
 
-The [official guide](https://vuepress.vuejs.org/guide/getting-started.html) had detailed instrcutions. I'll summarize in the following. 
+The [official guide](https://vuepress.vuejs.org/guide/getting-started.html) had detailed instructions. I'll summarize in the following. 
 
 Open your terminal, change the directory to where you want the new project sit, and then
 
@@ -290,7 +290,7 @@ mkdir .vuepress
 
 If you are on macOS and cannot see the hidden folder of `.vuepress` just created, press `CMD` + `Shift` + `.` simultaneously. 
 
-### Content structure
+### 2.2 Content structure
 
 Please take a look at the sample site I created using VuePress at [https://vuepress-starter.hongtaoh.com/](https://vuepress-starter.hongtaoh.com/), whose GitHub Repo is at [https://github.com/hongtaoh/vuepress-starter](https://github.com/hongtaoh/vuepress-starter).
 
@@ -335,7 +335,7 @@ To customize the sidebar and/or the navbar, first, you need to create a file nam
 > config.js
 ```
 
-The Navbar is relatively easy to set, read the instrctions [here](https://vuepress.vuejs.org/theme/default-theme-config.html#navbar) or look at the [config.js](https://github.com/hongtaoh/vuepress-starter/blob/master/docs/.vuepress/config.js) of the example site. 
+The Navbar is relatively easy to set, read the instructions [here](https://vuepress.vuejs.org/theme/default-theme-config.html#navbar) or look at the [config.js](https://github.com/hongtaoh/vuepress-starter/blob/master/docs/.vuepress/config.js) of the example site. 
 
 The Sidebar is a little bit complicated. I chose to use [vuepress-plugin-sidebar](https://github.com/tacck/vuepress-plugin-sidebar) to generate the sidebar-manu automatically. Again, look at the [config.js](https://github.com/hongtaoh/vuepress-starter/blob/master/docs/.vuepress/config.js) of the example site, or [VuePress's instructions](https://vuepress.vuejs.org/theme/default-theme-config.html#sidebar).
 
@@ -357,17 +357,17 @@ To serve the site locally, at the root directory of `vuepress-starter`:
 npm run docs:dev
 ```
 
-Make relavent changes until you are satisfied with the look and structure. 
+Make relevant changes until you are satisfied with the look and structure. 
 
-### Customization
+### 2.3 Customization
 
 Please refer to the [Theme section](https://vuepress.vuejs.org/theme/) of VuePress's official documentation for more information. If you don't like the default look, you change the theme or write your own theme. 
 
-### Publish
+### 2.4 Publish
 
 First, as usual, you need to create a repository on GitHub (or similar platforms). 
 
-In case you are not familar with Git, at the root directory of `vuepress-starter` you just created:
+In case you are not familiar with Git, at the root directory of `vuepress-starter` you just created:
 
 ```bash
 git init
@@ -377,13 +377,13 @@ git remote add origin https://github.com/UserName/ProjectName
 git push -u origin master
 ``` 
 
-You can find the [official instructions](https://vuepress.vuejs.org/guide/deploy.html) on publishing a VuePress project. Again, I recommond the Netlify option. 
+You can find the [official instructions](https://vuepress.vuejs.org/guide/deploy.html) on publishing a VuePress project. Again, I recommend the Netlify option. 
 
-## Jupyterbook
+## 3. Jupyterbook
 
 Jupyterbook is great if you have Jupyter Notebook (`.ipynb`) files. Even if you have pure texts, the functions of Jupyterbook might interest you. 
 
-### Install
+### 3.1 Install
 
 If you don't have Python yet, you need to first install it. 
 
@@ -393,7 +393,7 @@ You can install Jupyterbook via pip:
 pip install -U jupyter-book
 ```
 
-### Get started
+### 3.2 Get started
 
 You can create a sample book:
 
@@ -407,7 +407,7 @@ Or you can `git clone` the [demo site](https://olymvis-jupyterbook.hongtaoh.com/
 git clone https://github.com/hongtaoh/olymvis-jupyterbook
 ```
 
-### Content structure
+### 3.3 Content structure
 
 Simply put all your content in the root directory of your book project. Take [my demo site](https://olymvis-jupyterbook.hongtaoh.com/) as an example:
 
@@ -476,7 +476,7 @@ Then, configure the structure in `_toc.yml`:
 - file: ref
 ```
 
-### Serve the site locally
+### 3.4 Serve the site locally
 
 To build the book, first change directory to the **directory one level higher than your book project** (e.g., `book_project`). For example, if the book project is sitting on your Desktop, then
 
@@ -487,15 +487,15 @@ jupyter-book build book_project/ # Or: jb build book_project/
 
 Open `file://Users/my_path_to_book/_build/index.html` and you'll be able to see the site. See the output after you run `jupyter-book build book_project/` for the exact address of `file://...`.
 
-### Customization
+### 3.5 Customization
 
-For details on customization, and all the features enabled by MyST Markdown, please consult the [official documentaion](https://jupyterbook.org/intro.html) of Jupyterbook.
+For details on customization, and all the features enabled by MyST Markdown, please consult the [official documentation](https://jupyterbook.org/intro.html) of Jupyterbook.
 
-### Publish
+### 3.6 Publish
 
 You can publish your jupyterbook project with [GitHub Pages and Actions](https://jupyterbook.org/publish/gh-pages.html). For consistency and simplicity, I'll talk about how publish via Netlify. 
 
-Again, you need to create a repository for your project. In case you are not familar with Git, at the root directory of `book_project`:
+Again, you need to create a repository for your project. In case you are not familiar with Git, at the root directory of `book_project`:
 
 ```bash
 git init
@@ -505,18 +505,20 @@ git remote add origin https://github.com/UserName/ProjectName
 git push -u origin master
 ``` 
 
-To configure Netlify, refer to the relevant section in the Hugo tutorial above. In the last step of "Deploy site" on Netlify, I suggest that you leave "Build command" blank and input `_build/html` for "Pubish directory".
+To configure Netlify, refer to the relevant section in the Hugo tutorial above. In the last step of "Deploy site" on Netlify, I suggest that you leave "Build command" blank and input `_build/html` for "Publish directory".
 
 I tried the configuration mentioned in the section of [Publish with Netlify](https://jupyterbook.org/publish/netlify.html) on the official documentation. The [Step 2](https://jupyterbook.org/publish/netlify.html) did not work for me. Therefore, I chose to leave "Build command" blank on Netlify. This means that you'll have to build the site (with `jupyter-book build book_project/` mentioned above) before updating your content. 
 
-## R Bookdown
+## 4. R Bookdown
 
 I personally recommend [Bookdown](https://github.com/rstudio/bookdown) because
 
-1. Simple but elegent look
+1. Simple but elegant look
 2. Easy to generate decent PDF and MS Word files
 
-### Install Bookdown
+Since Yihui, the creator of Bookdown, has made detailed documentation in his [*bookdown: Authoring Books and Technical Documents with R Markdown*](https://bookdown.org/yihui/bookdown/), I will talk very briefly in the following and encourage you to consult the book when in doubt. 
+
+### 4.1 Install Bookdown
 
 First, make sure you already have R and [Rstudio IDE](https://www.rstudio.com/products/rstudio/download/) installed. 
 
@@ -526,7 +528,7 @@ In R, to install the package of Bookdown:
 install.packages("bookdown")
 ```
 
-### Get started
+### 4.2 Get started
 
 If you want an almost empty demo project, refer to the [Get started section](https://bookdown.org/yihui/bookdown/get-started.html) of the [Bookdown official documentation](https://bookdown.org/yihui/bookdown/).
 
@@ -538,7 +540,7 @@ git clone https://github.com/hongtaoh/olymvis-bookdown
 
 I am familiar with my example, so I'll use it for illustration. 
 
-### Use
+### 4.3 Use
 
 In my example, if you only want the book in `HTML` format, not in PDF or MS Word, then in `_output.yml` please comment out these lines:
 
@@ -563,15 +565,30 @@ output:
 
 If you wist to generate PDF, you need to install a LaTeX distribution. Yihui recommends installing [TinyTex](https://yihui.org/tinytex/) if you don't have one distribution installed already.
 
-### Content structure
+### 4.4 Content structure
 
 Each chapter should be a stand-alone `.Rmd` file. You need to start the `.Rmd` file with a chapter name using `# Chapter Name`. If you don't want a certain chapter to be numbered, use `# Chapter Name {-}`. To make the url of each chapter look decent, you can tag it as `# Chapter Name {#WhateverTagYouLike}`.
 
 Each chapter can have sections and subsections, which are set with second/third/fourth/fifth/sixth-level headings. Sections and Subsections can also be tagged. 
 
-Read [here](https://bookdown.org/yihui/bookdown/usage.html) for details. 
+Read [here](https://bookdown.org/yihui/bookdown/usage.html) for more details. 
 
+### 4.5 Serve locally
 
+Open your `book_project.Rproj` with Rstudio, on the upper-right panel, click "Build" and then click "Build book". 
 
+### 4.6 Customization
 
+Read [Chapter 4 Customization](https://bookdown.org/yihui/bookdown/customization.html) for details. 
 
+### 4.7 PDF, E-Books, and MS Word outputs
+
+Alongside the ease of creating an elegant-looking HTML online book, Bookdown makes it a trivia task to generate PDF, E-books (EPUB and MOBI), and even MS Word versions of the book. Very little customization is needed. For example, with [fewer than 10 lines](https://github.com/hongtaoh/olymvis-bookdown/blob/master/preamble.tex) of LaTeX codes, I was able to generate [this not-so-bad PDF output](https://olymvis-bookdown.hongtaoh.com/olymvis-bookdown.pdf). The [MS Word output](https://olymvis-bookdown.hongtaoh.com/_book/olymvis-bookdown.docx) looks pretty good to me. 
+
+You should configure the output formats in `index.Rmd` and `_output.yml`. See more details in [Chapter 3 Output Formats](https://bookdown.org/yihui/bookdown/output-formats.html).
+
+### 4.8 Publish
+
+Publishing through Netlify is an easy method. Create a GitHub Repo and configure Netlify as in *3.6 Publish* of Jupyterbook. In the last step of Netlify configuration (i.e., before clicking "Deploy site"), leave the "Build command" blank and use `_book` as the "Publish directory".
+
+Read [*Chapter 6 Publishing*](https://bookdown.org/yihui/bookdown/publishing.html) for more options. 
