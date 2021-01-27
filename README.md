@@ -3,7 +3,6 @@
 In the following, I'll talk about how to make online books or online documentation using four different tools/frameworks: [Hugo](https://gohugo.io/), [VuePress](https://vuepress.vuejs.org/), [Jupyterbook](https://jupyterbook.org/intro.html), and the R pacakage of [Bookdown](https://github.com/rstudio/bookdown). For each tool, I'll detail (1) installation, (2) usage, (3) content structure, (4) customization, and (5) publishing.
 
 ## Table of Contents
-***
 
 - [Why online books](#why-online-books)
 - [1. Hugo](#1-hugo)
