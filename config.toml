@@ -47,11 +47,7 @@ googleAnalytics = ""
 
   [[params.navlinks]]
   name = "Tutorial"
-  url = "tutorial/"
-
-  [[params.navlinks]]
-  name = "Get in touch"
-  url = "contact/"
+  url = "https://github.com/hongtaoh/onlinebook#readme"
 
   [params.social]
   github        = "https://github.com/hongtaoh/onlinebook"
