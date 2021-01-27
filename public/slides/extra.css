@@ -1,0 +1,24 @@
+.red {
+  color: #FF0000;
+}
+
+h2 {
+  color: purple;
+}
+
+pre {
+  border: 1px solid #cccccc; 
+  /*#757575*/
+}
+
+pre code {
+  background-color: transparent;
+  border: none;
+}
+
+code {
+  padding: 2px 0.25rem;
+  border-radius: 2px;
+  border: 1px solid #757575;
+  font-family: 'Courier';
+}

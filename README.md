@@ -178,7 +178,7 @@ To see the example site, at the root directory of `demosite`:
 hugo server -D
 ```
 
-If everything goes well, open `http://localhost:1313/` and you'll see the example site that you saw in the theme's repo. 
+If everything goes well, open [http://localhost:1313/](http://localhost:1313/) and you'll see the example site that you saw in the theme's repo. 
 
 To stop the local server, press `Ctrl` + `C`. 
 

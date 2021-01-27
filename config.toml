@@ -49,6 +49,10 @@ googleAnalytics = ""
   name = "Tutorial"
   url = "https://github.com/hongtaoh/onlinebook#readme"
 
+  [[params.navlinks]]
+  name = "Slides"
+  url = "slides/onlinebook.html"
+
   [params.social]
   github        = "https://github.com/hongtaoh/onlinebook"
 

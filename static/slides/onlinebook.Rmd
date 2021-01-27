@@ -1,0 +1,440 @@
+---
+title: "How to create online books/online documentation"
+subtitle: "YY Lab Weekly Talk"
+author: "Hongtao Hao"
+institute: ""
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, extra.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+background-image: url(https://artofproblemsolving.com/m/store/images/onlinebooks.png)
+background-size: 300px
+background-position: 50% 80%
+
+## Why online books?
+
+- Open access
+
+- Open source
+
+- Learn at a deeper level
+
+
+---
+background-image: url(https://blog.qatestlab.com/wp-content/uploads/2011/12/Software-Bug-Handling-Process-And-Tools.jpg)
+background-size: 300px
+background-position: 50% 80%
+
+## Software tools used in this tutorial
+
+- [Hugo](https://gohugo.io/)
+
+- [VuePress](https://vuepress.vuejs.org/)
+
+- [Jupyterbook](https://jupyterbook.org/)
+
+- [R Bookdown](https://bookdown.org/yihui/bookdown/)
+
+---
+class: inverse
+background-image: url(https://d33wubrfki0l68.cloudfront.net/c38c7334cc3f23585738e40334284fddcaf03d5e/2e17c/images/hugo-logo-wide.svg)
+background-size: 300px
+background-position: 50% 50%
+
+# [Hugo](https://gohugo.io/)
+
+A static site generator written in Go. Similar to Jekyll, but much faster. 
+
+---
+background-image: url(https://www.vdcassistant.com/wp-content/uploads/2019/02/install-769x430.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+## Hugo: Install
+
+- Download binary from [Hugo releases](https://github.com/gohugoio/hugo/releases); or
+
+- `brew install hugo`; or
+
+- Refer to [official guide](https://gohugo.io/getting-started/installing/) for more options
+
+- To check whether installation is successful:
+
+  ```bash
+  $ hugo version
+  ```
+
+---
+## Hugo: Quick start
+
+### Demosite
+
+```bash
+$ hugo new site demosite
+```
+
+### Theme
+
+The gallery of all available themes can be found [here](https://themes.gohugo.io/).
+
+```bash
+$ cd demosite/themes
+$ git submodule add ThemeRepoRUL
+```
+
+- Copy all the content within `themes/YourChosenTheme/exampleSite` and paste it to the root directory of demosite
+---
+## Hugo: Building and local servering
+
+Configure the `config.toml` first to make sure that in theme = "ThemeNmae", `ThemeNmae` is the same as the folder name of `themes/YourChosenTheme`. Then
+
+```basah
+hugo server -D
+```
+Open [http://localhost:1313/](http://localhost:1313/) and you should be able to see the site. 
+
+---
+## Hugo: Content structure
+
+The key to a book is the **structure** and **order** of its files. In Hugo, you can set the order via `weight = n`:
+
+```
+├── _index.md  # ---> weight: 1 
+├── chapter01  
+│   ├── _index.md  # ---> weight: 10
+│   ├── section01.md  # ---> weight: 11
+│   └── section02.md  # ---> weight: 12
+├── chapter02
+│   ├── _index.md  # ---> weight: 20
+│   ├── section01.md  # ---> weight: 21
+│   ├── section02.md  # ---> weight: 22
+│   └── section03.md  # ---> weight: 23
+└── chapter03
+    └── _index.md  # ---> weight: 30
+```
+
+---
+background-image: url(https://portallas.com/wp-content/uploads/Publish.png)
+background-size: 300px
+background-position: 50% 90%
+
+## Hugo: Publish
+
+Read more details in [Hugo's instructions](https://gohugo.io/hosting-and-deployment/) or [my tutorial](https://gohugo.io/hosting-and-deployment/)
+
+1. Add a [`netlify.toml`](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify) to the root directory of demosite
+
+2. Create a repository on GitHub or other platforms
+
+3. [Create a Netlify account](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#create-a-netlify-account)
+
+4. [Create a New Site](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#create-a-new-site-with-continuous-deployment)
+
+5. [Build and Deploy](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#build-and-deploy-site)
+
+---
+class: inverse
+background-image: url(https://vuepress.vuejs.org/hero.png)
+background-size: 300px
+background-position: 50% 80%
+
+# [VuePress](https://vuepress.vuejs.org/)
+
+A static site generator powered by Vue.js
+
+[My example site](https://vuepress-starter.hongtaoh.com/) | [GitHub Repo](https://github.com/hongtaoh/vuepress-starter)
+
+---
+background-image: url(https://www.vdcassistant.com/wp-content/uploads/2019/02/install-769x430.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+## VuePress: Install & Quick start
+
+**Prerequisite**: [Node.js](https://nodejs.org/en/) or [Yarn classic](https://classic.yarnpkg.com/en/)
+
+Read the [official guide](https://vuepress.vuejs.org/guide/getting-started.html) for more details.
+
+```bash
+$ mkdir vuepress-starter 
+$ cd vuepress-starter
+$ npm init
+$ npm install -D vuepress 
+$ mkdir docs  # All of the future content will be put in the folder of docs
+$ echo '# Hello VuePress' > docs/README.md
+$ mkdir .vuepress
+```
+
+---
+### VuePress: Quick start (continued)
+
+Add the following to `package.json`:
+
+```js
+{
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
+```
+
+---
+## VuePress: Content structure
+
+The default structure of the book is the same as what you see in your `docs` folder. Therefore, numbering your files make sure they are in the order you desired:
+
+```
+├── 01-abstract
+│   └── README.md
+├── 02-motivation
+│   └── README.md
+├── 03-lit
+│   ├── 01-lit-female.md
+│   ├── 02-homefield.md
+│   ├── 03-efficiency.md
+│   ├── 04-ranking.md
+│   └── README.md
+ ...
+```
+
+---
+## VuePress: Navbar and Sidebar
+
+First, create a `config.js` file inside `docs/.vuepress`:
+
+```bash
+$ cd .vuepress
+$ > config.js
+```
+
+- Look at the [config.js](https://github.com/hongtaoh/vuepress-starter/blob/master/docs/.vuepress/config.js) of [the example site I created](https://vuepress-starter.hongtaoh.com/) to get a quick idea of configuration. 
+
+- Consult VuePress's documentaiton for detailed configuration of [Navbar](https://vuepress.vuejs.org/theme/default-theme-config.html#navbar) and [Sidebar](https://vuepress.vuejs.org/theme/default-theme-config.html#sidebar).
+
+- [vuepress-plugin-sidebar](https://github.com/tacck/vuepress-plugin-sidebar) can be handy if you want to generate the sidebar automatically.
+
+---
+## VuePress: Build the site
+
+To serve the site locally, at the root directory of vuepress-starter:
+
+```bash
+$ npm run docs:dev
+```
+
+---
+background-image: url(https://portallas.com/wp-content/uploads/Publish.png)
+background-size: 300px
+background-position: 50% 90%
+
+## VuePress: Publish
+
+1. GitHub: Create a Repo
+
+2. Netlify: New site from Git 
+
+3. Netlify: Deploy site
+
+Consult VuePress's [official documentation](https://vuepress.vuejs.org/guide/deploy.html) for more options. 
+
+---
+class: inverse
+background-image: url(https://raw.githubusercontent.com/executablebooks/jupyter-book/master/docs/images/logo.png)
+background-size: 300px
+background-position: 50% 50%
+
+## [Jupyterbook](https://jupyterbook.org/)
+
+Good for book projects with Jupyter Notebooks 
+
+[My example site](https://olymvis-jupyterbook.hongtaoh.com/) | [GitHub Repo](https://github.com/hongtaoh/olymvis-jupyterbook)
+
+---
+background-image: url(https://www.vdcassistant.com/wp-content/uploads/2019/02/install-769x430.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+## Jupyterbook: Install  
+
+**Prerequisite**: Python
+
+You can install Jupyterbook via pip:
+
+```bash
+pip install -U jupyter-book
+```
+
+---
+background-image: url(https://www.thepsoriasisprogram.com/wp-content/uploads/2014/04/QuickStart.png)
+background-size: 300px
+background-position: 50% 85%
+
+## Jupyterbook: Quick start
+
+Create a sample book:
+
+```bash
+jupyter-book create samplebook/
+```
+
+Or `git clone` the [demo site](https://olymvis-jupyterbook.hongtaoh.com/) I created:
+
+```bash
+git clone https://github.com/hongtaoh/olymvis-jupyterbook
+```
+
+---
+## Jupyterbook: Content Strucutre
+
+Put all of your content in the root direcory of your book project, and then configure the structure in [`_toc.yml`](https://github.com/hongtaoh/olymvis-jupyterbook/blob/master/_toc.yml):
+
+```
+- file: intro
+- file: abstract
+- file: motivation
+- file: 03-lit/index
+  sections:
+    - file: 03-lit/01-lit-female
+    - file: 03-lit/02-lit-homefield
+    - file: 03-lit/03-lit-efficiency
+    - file: 03-lit/04-lit-ranking
+- file: 04-plans/index
+  sections:
+    - file: 04-plans/01-plans-female
+    - file: 04-plans/02-plans-homefield
+    - file: 04-plans/03-plans-efficiency
+    - file: 04-plans/04-plans-ranking
+  ...
+  ...
+```
+
+---
+## Serve site locally
+
+change directory to the **directory one level higher than your book project** (e.g., `book_project`). For example, if the book project is sitting on your Desktop, then
+
+```bash
+cd Desktop
+jupyter-book build book_project/ # Or: jb build book_project/
+```
+
+Open [file://Users/my_path_to_book/_build/index.html](file://Users/my_path_to_book/_build/index.html) and you'll be able to see the site. See the output after you run `jupyter-book build book_project/` for the exact address of `file://...`.
+
+---
+background-image: url(https://portallas.com/wp-content/uploads/Publish.png)
+background-size: 300px
+background-position: 50% 90%
+
+## Jupyterbook: Publish
+
+1. GitHub: Create a Repo
+
+2. Netlify: New site from Git 
+
+3. Netlify: Deploy site
+
+  - Leave "Build command" blank
+  
+  - "Publish directory": `_build/html`
+
+
+Consult Jupyerbook's documentation of [*Publish your book online*](https://jupyterbook.org/start/publish.html#publish-your-book-online) for details and more options.
+
+---
+class: inverse
+background-image: url(https://camo.githubusercontent.com/d7b356c04770e4e9844d1b46af430f4198b88f238761076128fd7434ae361bc2/68747470733a2f2f626f6f6b646f776e2e6f72672f79696875692f626f6f6b646f776e2f696d616765732f6c6f676f2e706e67)
+background-size: 200px
+background-position: 50% 80%
+
+## [R Bookdown](https://bookdown.org/yihui/bookdown/)
+
+Beautiful books in HTML, PDF, EPUB, and Even MS Word
+
+- [My example site](https://olymvis-bookdown.hongtaoh.com/) 
+
+- [GitHub Repo](https://github.com/hongtaoh/olymvis-bookdown) 
+
+- [PDF output](https://olymvis-bookdown.hongtaoh.com/olymvis-bookdown.pdf) 
+
+- [MS Word output](https://olymvis-bookdown.hongtaoh.com/_book/olymvis-bookdown.docx)
+
+---
+background-image: url(https://www.vdcassistant.com/wp-content/uploads/2019/02/install-769x430.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+## Bookdown: Install  
+
+**Prerequisite**: R, [Rstuido](https://www.rstudio.com/products/rstudio/download/), [TinyTex](https://yihui.org/tinytex/) (if you need PDF outputs)
+
+You can install Jupyterbook via pip:
+
+```r
+install.packages("bookdown")
+```
+
+---
+## Bookdown: Quick start
+
+If you want an almost empty demo project, refer to the [Get started section](https://bookdown.org/yihui/bookdown/get-started.html) of the [Bookdown official documentation](https://bookdown.org/yihui/bookdown/).
+
+Or you can `git clone` the Repo of [my example site](https://olymvis-bookdown.hongtaoh.com/):
+
+```bash
+git clone https://github.com/hongtaoh/olymvis-bookdown
+```
+
+I am familiar with my example, so I'll use it for illustration. 
+
+---
+## Bookdown: Content structure
+
+- Each chapter is a stand-alone `.Rmd` file. 
+
+- Start the `.Rmd` file with a chapter name using `# Chapter Name`. 
+
+- If you don't want a certain chapter to be numbered, use `# Chapter Name {-}`. 
+
+- To make the url of each chapter look decent, you can tag it as `# Chapter Name {#WhateverTagYouLike}`.
+
+- Each chapter can have sections and subsections, which are set with second/third/fourth/fifth/sixth-level headings. Sections and Subsections can also be tagged. 
+
+Read [here](https://bookdown.org/yihui/bookdown/usage.html) for more details. 
+
+---
+## Bookdown: Serve site locally
+
+Open your `book_project.Rproj` with Rstudio, on the upper-right panel, click "Build" and then click "Build book". 
+
+---
+## Bookdown: PDF, E-Books, and MS Word outputs
+
+With [fewer than 10 lines](https://github.com/hongtaoh/olymvis-bookdown/blob/master/preamble.tex) of LaTeX codes, I was able to generate [this not-so-bad PDF output](https://olymvis-bookdown.hongtaoh.com/olymvis-bookdown.pdf). The [MS Word output](https://olymvis-bookdown.hongtaoh.com/_book/olymvis-bookdown.docx) looks pretty good to me. 
+
+You should configure the output formats in `index.Rmd` and `_output.yml`. See more details in [Chapter 3 Output Formats](https://bookdown.org/yihui/bookdown/output-formats.html).
+
+---
+background-image: url(https://portallas.com/wp-content/uploads/Publish.png)
+background-size: 300px
+background-position: 50% 90%
+
+## Bookdown: Publish
+
+Publishing through Netlify is an easy method. Create a GitHub Repo and configure Netlify as in *3.6 Publish* of Jupyterbook. In the last step of Netlify configuration (i.e., before clicking "Deploy site"), leave the "Build command" blank and use `_book` as the "Publish directory".
+
+Read [*Chapter 6 Publishing*](https://bookdown.org/yihui/bookdown/publishing.html) for more options. 
+
+---
+class: inverse, middle, center
+background-image: url(http://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/12/thanks-gift-tag-paper-craft.png)
+background-size: 500px
+background-position: 50% 50%
+
+
