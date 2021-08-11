@@ -1,0 +1,178 @@
+---
+title: "Introduction to d3.js and Observable notebook"
+subtitle: "YY Lab Weekly Talk"
+author: "Hongtao Hao"
+institute: ""
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, extra.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+background-image: url(https://camo.githubusercontent.com/586ccf0aad9684edc821658cee04146cf36d1f1d5ec904bbefd72728909ccb2e/68747470733a2f2f64336a732e6f72672f6c6f676f2e737667)
+background-size: 150px
+background-position: 80% 50%
+
+## D3: Daunting Draft Done?
+--
+
+### Data-Driven Document
+
+- [Successor to Protovis](http://mbostock.github.io/d3/tutorial/protovis.html)
+
+- Version 2.0.0 released in 2011 <sup>1</sup>
+
+- Latest stable version: 6.0.0 in 2020
+
+
+.footnote[
+[1] [Wikipedia](https://en.wikipedia.org/wiki/D3.js#cite_note-4)
+]
+
+---
+background-image: url(bostock.png)
+background-size: 400px
+background-position: 50% 90%
+
+## Who created D3?
+
+### Primary author: [Mike Bostock](https://twitter.com/mbostock)
+
+Others:
+- [Jason Davies](https://github.com/jasondavies)
+- [Jeffrey Heer](https://homes.cs.washington.edu/~jheer/) (Vige, Vige-Lite; Bostock's PhD adviser)
+
+---
+class: inverse, middle, center
+
+# (Good) Examples of D3
+
+---
+background-image: url(elevation-scan.png)
+background-size: 800px
+background-position: 50% 55%
+
+[@neocartocnrs/elevation](https://next.observablehq.com/@neocartocnrs/elevation)
+
+---
+background-image: url(women-architects.png)
+background-size: 500px
+background-position: 50% 90%
+
+[@carmen-tm/women-architects-i-didnt-hear-about](https://next.observablehq.com/@carmen-tm/women-architects-i-didnt-hear-about)
+
+---
+background-image: url(sankey.png)
+background-size: 800px
+background-position: 50% 50%
+
+[@d3/sankey-diagram](https://next.observablehq.com/@d3/sankey-diagram)
+
+---
+background-image: url(choropleth.png)
+background-size: 800px
+background-position: 50% 50%
+
+[@d3/choropleth](https://next.observablehq.com/@d3/choropleth)
+
+---
+background-image: url(fatality.png)
+background-size: 880px
+background-position: 50% 90%
+
+[@yy/covid-19-fatality-rate](https://next.observablehq.com/@yy/covid-19-fatality-rate)
+
+---
+And most of the vis you saw on *NYT*
+
+![NYT](https://static.observableusercontent.com/files/117c9b99cfbaf1b5b70a568b92766462b2a0f4b0452135dacb9c474ef3764d1bd9b99fb5bc795871554136bb40aec357b0965aef296158e843ff32ed956e993f)
+
+Image credit: [Duy Nguyen](https://next.observablehq.com/@duynguyen1678/xin-chao-d3-js)
+
+Visualization source: [Is It Better to Rent or Buy?](https://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html) by Mike Bostock
+
+---
+## Good sources of inspiration:
+
+- [Trending](https://observablehq.com/trending)
+
+- [All-time most liked](https://observablehq.com/top)
+
+---
+class: inverse, middle, center
+
+# Why do we need D3.js?
+
+---
+Suppose you want to have a `rect` within a `div`. It's easy:
+
+```{html}
+<div style="width: 900; text-align: center">
+  <svg id="demo" width="500" height="110" 
+       style="background-color: skyblue">
+    <rect x="200" y="30" width="100" height="70" 
+          style="fill: red"></rect>
+  </svg>
+</div>
+```
+
+<div style="width: 900; text-align: center">
+  <svg id="demo" width="500" height="110" 
+       style="background-color: skyblue">
+    <rect x="200" y="30" width="100" height="70" 
+          style="fill: red"></rect>
+  </svg>
+</div>
+
+---
+background-image: url(bars-example.png)
+background-size: 880px
+background-position: 50% 80%
+
+### But what if you want many `rect`s, with space between them? Are you going to calculate the `x` and `y` coordinates of each `rect` by hand?
+
+---
+class: inverse
+background-image: url(https://media.giphy.com/media/xT9IgqgHL3SiMOyfWE/giphy.gif)
+background-size: 500px
+background-position: 50% 50%
+
+## That's when you need D3!
+
+---
+class: inverse
+background-image: url(observable.png)
+background-size: 800px
+background-position: 50% 50%
+
+# [Observable notebooks](https://observablehq.com/)
+
+---
+## Today's goal
+
+- Learn how to code in Observable notebooks
+
+- Complete a "simple" D3 task
+
+---
+class: inverse
+background-image: url(https://alignedleft.com/content/02-work/410-d3-book-2e/1.png)
+background-size: 300px
+background-position: 50% 90%
+
+## Book recommended!
+
+[*Interactive Data Visualization for the Web, 2nd Ed.*](https://alignedleft.com/work/d3-book-2e) by [Scott Murray](https://alignedleft.com/)
+
+- A website I built to practice the examples mentioned in the book: https://d3book.hongtaoh.com/
+
+---
+class: inverse, middle, center
+background-image: url(http://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/12/thanks-gift-tag-paper-craft.png)
+background-size: 500px
+background-position: 50% 50%
+
